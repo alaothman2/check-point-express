@@ -4,9 +4,11 @@ const path = require("path");
 
 app.set("view-engine", "ejs");
 app.use(express.static(path.join(__dirname,'public')))
+const checkTime = require("./middleware")
 
+app.use(checkTime)
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 app.get("/contact-us", (req, res) => {
